@@ -7,6 +7,7 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    scroll-behavior: smooth;
 }
 .navbar {
     display: flex;
@@ -62,6 +63,7 @@ body{
         transition: transform 0.3s ease-in-out;
         opacity: 0;
         pointer-events: none;
+        z-index: 1000;
     }
     .nav-links li {
         margin: 10px 0;
@@ -75,6 +77,10 @@ body{
         opacity: 1;
         pointer-events: auto;
     }
+
+    .container{
+        margin-right: 40px;
+    }
 }
 
 /*Main content style*/
@@ -82,11 +88,19 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    min-height: 70vh;
     color: white;
     line-height: normal;
     text-align: center;
     display: none;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 h1{
@@ -97,6 +111,11 @@ h1{
 p{
     font-size: 18px;
     max-width: 60em;
+}
+
+.content-section p{
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .content-section.active {
@@ -157,4 +176,3 @@ footer .container {
 .copyright {
     margin-bottom: 0;
 }
-
